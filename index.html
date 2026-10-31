@@ -12,6 +12,8 @@
   // Endereço do app. Se o link mudar, troque só esta linha.
   var APP = 'https://claude.ai/artifact/P6zhLKHEsx8nCKrGX997vn';
   var setup = /[?&]config\b/.test(location.search);
+  // Tira o ?config do endereço, para o ícone da tela de início salvar o link limpo.
+  if (setup) { try { history.replaceState(null, '', location.pathname); } catch (e) {} }
   var webapp = window.navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
   // Aberto pela Tela de Início no modo normal (Safari): vai direto ao app.
   // Aberto como App Web: só segue direto se ela já escolheu continuar assim.
